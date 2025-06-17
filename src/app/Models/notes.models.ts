@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
+import { INote } from "../interfaces.ts/notes.interface";
 
-const noteSchema = new Schema({
+const noteSchema = new Schema<INote>({
   title: { type: String, required: true, trim: true },
   content: { type: String, default: "" },
   category: {

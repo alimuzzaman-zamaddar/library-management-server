@@ -1,6 +1,5 @@
 import express, { Application, Request, Response } from "express";
 import mongoose, { Schema } from "mongoose";
-import { Note } from "./Models/notes.models";
 import { notesRoutes } from "./Controllers/notes.controllers";
 import { usersRoutes } from "./Controllers/user.controllers";
 const app: Application = express();
