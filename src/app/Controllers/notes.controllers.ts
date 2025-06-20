@@ -1,51 +1,51 @@
 import express, {  Request, Response } from "express";
-import { Note } from "../Models/notes.models";
+import { Book } from "../Models/notes.models";
 
 
-export const notesRoutes = express.Router();
+export const bookRoutes = express.Router();
 
 
-notesRoutes.post("/crate-note", async (req: Request, res: Response) => {
+bookRoutes.post("/api/books", async (req: Request, res: Response) => {
   const body = req.body;
-const note = await Note.create(body);
+const book = await Book.create(body);
 
   res.status(201).json({
     success: true,
-    message : "Note created successfully",
-    note 
+    message : "book created successfully",
+    book 
     });
 });
-notesRoutes.get("/", async (req: Request, res: Response) => {
-  const notes = await Note.find();
+bookRoutes.get("/api/books", async (req: Request, res: Response) => {
+  const data = await Book.find();
   res.status(201).json({
     success: true,
-    message: "Notes fetched successfully",
-    notes
+    message: "Books retrieved successfully",
+    data
   });
 });
-notesRoutes.get("/:noteId", async (req: Request, res: Response) => {
-  const note = await Note.findById(req.params.noteId);
+bookRoutes.get("/api/books/:bookId", async (req: Request, res: Response) => {
+  const data = await Book.findById(req.params.bookId);
   res.status(201).json({
     success: true,
-    message: "Notes fetched successfully",
-    note
+    message: "Books retrieved successfully",
+    data
   });
 });
-notesRoutes.patch("/:noteId", async (req: Request, res: Response) => {
-  const noteId = req.params.noteId;
+bookRoutes.patch("/api/books/:bookId", async (req: Request, res: Response) => {
+  const noteId = req.params.bookId;
   const updatedData = req.body;
-  const note = await Note.findByIdAndUpdate(noteId, updatedData, {new: true})
+  const data = await Book.findByIdAndUpdate(noteId, updatedData, {new: true})
   res.status(201).json({
     success: true,
-    message: "Notes updated successfully",
-    note
+    message: "Book updated successfully",
+    data
   });
 });
-notesRoutes.delete("/:noteId", async (req: Request, res: Response) => {
-  const note = await Note.deleteOne({ _id: req.params.noteId });
+bookRoutes.delete("/api/books/:bookId", async (req: Request, res: Response) => {
+  const data = await Book.deleteOne({ _id: req.params.noteId });
   res.status(201).json({
     success: true,
-    message: "Notes fetched successfully",
-    note
+    message: "Book deleted successfully",
+    data: null
   });
 });

@@ -1,15 +1,11 @@
 
 
-export interface INote {
-    title: string;
-    content?: string;
-    category?: "personal" | "work" | "study" | "other";
-    pinned?: boolean;
-    tags?: {
-        label: string;
-        color?: string;
-    };
-    createdAt?: Date;
-    updatedAt?: Date;
-
+export interface IBook {
+  title: string;
+  author: string;
+  genre: 'FICTION' | 'NON_FICTION' | 'SCIENCE' | 'HISTORY' | 'BIOGRAPHY' | 'FANTASY';
+  isbn: string;
+  description?: string;
+  copies: number;
+  available: boolean;
 }
