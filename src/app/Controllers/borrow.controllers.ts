@@ -1,4 +1,4 @@
-import express, { Request, response, Response } from "express";
+import express, { Request, Response } from "express";
 import { Borrow } from "../Models/borrow.models";
 import { Book } from "../Models/books.models";
 
@@ -37,7 +37,7 @@ borrowRoutes.post("/api/borrow", async (req: Request, res: Response) => {
       data: borrow,
     });
   } catch (error: any) {
-    return res.status(500).json({
+    return res.status(404).json({
       success: false,
       message: "Failed to borrow the book",
       error: error.message,
@@ -90,7 +90,7 @@ borrowRoutes.get("/api/borrow", async (req: Request, res: Response) => {
       data: summary
     });
   } catch (error: any) {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
       message: "Failed to retrieve borrow summary",
       error: error.message

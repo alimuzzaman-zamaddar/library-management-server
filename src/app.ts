@@ -11,34 +11,6 @@ app.use(express.json());
 app.use(bookRoutes);
 app.use(borrowRoutes);
 
-// app.post("/api/books", async (req: Request, res: Response) => {
-
-//   const body = req.body;
-//   try {
-//     const book = await Book.create(body);
-//     res.status(201).json({
-//       success: true,
-//       message: "Book created successfully",
-//       book,
-//     });
-//   } catch (error: unknown) {
-//     console.error("Error creating book:", error);
-//     if (error instanceof Error) {
-//       res.status(500).json({
-//         success: false,
-//         message: "Error creating book",
-//         error: error.message,
-//       });
-//     } else {
-//       res.status(500).json({
-//         success: false,
-//         message: "Unknown error occurred",
-//       });
-//     }
-//   }
-// });
-
-
 
 app.get("/", (req: Request, res: Response) => {
   res.send("welcome to book app");
