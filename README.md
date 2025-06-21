@@ -153,7 +153,7 @@ The **Library Management API** enables efficient management of books and borrowi
 
 Explore the live API (hosted on Vercel):
 
-https://library-management-iota-five.vercel.app/api
+https://library-management-iota-five.vercel.app
 
 
 
