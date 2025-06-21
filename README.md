@@ -47,8 +47,8 @@ The **Library Management API** enables efficient management of books and borrowi
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/library-management-api.git
-   cd library-management-api
+   [git clone https://github.com/your-username/library-management-api.git](https://github.com/alimuzzaman-zamaddar/library-management-server.git)
+   cd library-management-server
    ```
 
 2. **Install Dependencies**
