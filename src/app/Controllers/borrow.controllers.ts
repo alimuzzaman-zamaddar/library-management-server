@@ -5,6 +5,8 @@ import { Book } from "../Models/books.models";
 export const borrowRoutes = Router();
 
 borrowRoutes.get("/api/borrow", async (req: Request, res: Response) => {
+
+  
   try {
     const summary = await Borrow.aggregate([
       {
@@ -15,7 +17,7 @@ borrowRoutes.get("/api/borrow", async (req: Request, res: Response) => {
       },
       {
         $lookup: {
-          from: "books", // Collection name in MongoDB (MUST be lowercase plural)
+          from: "books", 
           localField: "_id",
           foreignField: "_id",
           as: "bookInfo"
