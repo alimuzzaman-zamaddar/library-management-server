@@ -1,7 +1,7 @@
 
 # Library Management API
 
-A RESTful API for managing a library’s book collection and borrowing system, built with **Express.js**, **TypeScript**, and **MongoDB** **Mongoose**.
+A RESTful API for managing a library’s book collection and borrowing system, built with **Express.js**, **TypeScript**, **MongoDB** and **Mongoose**.
 
 
 ## Table of Contents
