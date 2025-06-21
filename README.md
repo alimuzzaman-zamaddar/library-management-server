@@ -1,12 +1,8 @@
-Here’s a clean, readable, and well-structured version of your README.md for the Library Management API:
-
----
 
 # Library Management API
 
 A RESTful API for managing a library’s book collection and borrowing system, built with **Express.js**, **TypeScript**, and **MongoDB**.
 
----
 
 ## Table of Contents
 
@@ -20,13 +16,13 @@ A RESTful API for managing a library’s book collection and borrowing system, b
 - [Contributing](#contributing)
 - [License](#license)
 
----
+
 
 ## Overview
 
 The **Library Management API** enables efficient management of books and borrowing operations in a library. It supports CRUD operations on books, tracks borrow events, and provides features like filtering, sorting, and pagination.
 
----
+
 
 ## Features
 
@@ -36,7 +32,6 @@ The **Library Management API** enables efficient management of books and borrowi
 - **Filtering & Sorting**: Filter books by genre, sort by title or creation date, and paginate results.
 - **Error Handling**: Comprehensive error handling with appropriate HTTP status codes.
 
----
 
 ## Technologies Used
 
@@ -47,7 +42,7 @@ The **Library Management API** enables efficient management of books and borrowi
 - **Mongoose**: ODM library to interact with MongoDB.
 - **Postman**: API testing and exploration.
 
----
+
 
 ## Installation & Setup
 
@@ -75,7 +70,7 @@ The **Library Management API** enables efficient management of books and borrowi
    ```
    The server will start at [http://localhost:5000](http://localhost:5000).
 
----
+
 
 ## How the Project Works
 
@@ -89,7 +84,7 @@ The **Library Management API** enables efficient management of books and borrowi
 - **Books Collection**: Stores book details (title, author, genre, ISBN, available copies).
 - **Borrows Collection**: Tracks borrow events (book ID, quantity, due date).
 
----
+
 
 ## API Documentation
 
@@ -106,7 +101,7 @@ The **Library Management API** enables efficient management of books and borrowi
     "copies": 5,
     "available": true
   }
-  ```
+
 
 ### Get All Books
 
@@ -130,7 +125,7 @@ The **Library Management API** enables efficient management of books and borrowi
   {
     "copies": 50
   }
-  ```
+
 
 ### Delete Book
 
@@ -146,33 +141,24 @@ The **Library Management API** enables efficient management of books and borrowi
     "quantity": 2,
     "dueDate": "2025-07-18T00:00:00.000Z"
   }
-  ```
+
 
 ### Borrowed Books Summary
 
 - **Endpoint:** `GET /api/borrow`
 - Returns a summary of total quantity borrowed per book.
 
----
+
 
 ## Live Version
 
 Explore the live API (hosted on Vercel):
 
-- [Live API Link](#) <!-- Add your deployed link here -->
+https://library-management-iota-five.vercel.app/api
 
----
 
-## Contributing
 
-Contributions are welcome! Please open issues or submit pull requests for improvements or bug fixes.
 
----
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
 
----
-
-Let me know if you want this saved into your repository or need further customization!
