@@ -6,7 +6,7 @@ export const borrowRoutes = Router();
 
 borrowRoutes.get("/api/borrow", async (req: Request, res: Response) => {
 
-  
+
   try {
     const summary = await Borrow.aggregate([
       {
@@ -15,6 +15,7 @@ borrowRoutes.get("/api/borrow", async (req: Request, res: Response) => {
           totalQuantity: { $sum: "$quantity" }
         }
       },
+
       {
         $lookup: {
           from: "books", 
@@ -23,9 +24,11 @@ borrowRoutes.get("/api/borrow", async (req: Request, res: Response) => {
           as: "bookInfo"
         }
       },
+
       {
         $unwind: "$bookInfo"
       },
+      
       {
         $project: {
           _id: 0,

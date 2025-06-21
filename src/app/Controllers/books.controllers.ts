@@ -7,12 +7,12 @@ export const bookRoutes = express.Router();
 
 bookRoutes.post("/api/books", async (req: Request, res: Response) => {
   const body = req.body;
-const book = await Book.create(body);
+const data = await Book.create(body);
 
   res.status(201).json({
     success: true,
     message : "book created successfully",
-    book 
+    data 
     });
 });
 bookRoutes.get("/api/books", async (req: Request, res: Response) => {
@@ -42,7 +42,7 @@ bookRoutes.patch("/api/books/:bookId", async (req: Request, res: Response) => {
   });
 });
 bookRoutes.delete("/api/books/:bookId", async (req: Request, res: Response) => {
-  const data = await Book.deleteOne({ _id: req.params.noteId });
+  const data = await Book.deleteOne({ _id: req.params.bookId });
   res.status(201).json({
     success: true,
     message: "Book deleted successfully",
