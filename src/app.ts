@@ -1,13 +1,15 @@
 import express, { Application, Request, Response } from "express";
 import mongoose from "mongoose";
-import { usersRoutes } from "./app/Controllers/user.controllers";
-import { Book } from "./app/Models/notes.models";  // Import the Book model
-import { bookRoutes } from "./app/Controllers/notes.controllers";
+// import { usersRoutes } from "./app/Controllers/borrow.controllers";
+import { Book } from "./app/Models/books.models";  // Import the Book model
+import { bookRoutes } from "./app/Controllers/books.controllers";
+import { borrowRoutes } from "./app/Controllers/borrow.controllers";
 
 const app: Application = express();
 
 app.use(express.json());
 app.use(bookRoutes);
+app.use(borrowRoutes);
 
 app.post("/api/books", async (req: Request, res: Response) => {
   console.log("POST /books route hit");
@@ -36,7 +38,7 @@ app.post("/api/books", async (req: Request, res: Response) => {
   }
 });
 
-app.use("/users", usersRoutes);
+// app.use("/users", usersRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("welcome to book app");
