@@ -60,7 +60,7 @@ The **Library Management API** enables efficient management of books and borrowi
 
    Create a `.env` file in the root directory and add your MongoDB connection string:
    ```
-   MONGO_URI=mongodb+srv://your-mongo-uri
+   mongodg uri: mongodb+srv://noteapp:noteapp@cluster0.fmznhrh.mongodb.net/library?retryWrites=true&w=majority&appName=Cluster0
    ```
 
 4. **Run the Application**
