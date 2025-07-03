@@ -31,15 +31,36 @@ bookRoutes.get("/api/books/:bookId", async (req: Request, res: Response) => {
     data
   });
 });
-bookRoutes.patch("/api/books/:bookId", async (req: Request, res: Response) => {
-  const noteId = req.params.bookId;
+
+bookRoutes.put("/api/books/:bookId", async (req: Request, res: Response) => {
+  const bookId = req.params.bookId;
   const updatedData = req.body;
-  const data = await Book.findByIdAndUpdate(noteId, updatedData, {new: true})
-  res.status(201).json({
-    success: true,
-    message: "Book updated successfully",
-    data
-  });
+
+  try {
+    const updatedBook = await Book.findByIdAndUpdate(bookId, updatedData, {
+      new: true,
+      runValidators: true, 
+    });
+
+    if (!updatedBook) {
+      return res.status(404).json({
+        success: false,
+        message: "Book not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Book updated successfully",
+      data: updatedBook,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error updating book",
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
+  }
 });
 bookRoutes.delete("/api/books/:bookId", async (req: Request, res: Response) => {
   const data = await Book.deleteOne({ _id: req.params.bookId });
