@@ -18,11 +18,11 @@ app.use(
 
 app.use(express.json());
 
-// Define routes
+
 app.use(bookRoutes);
 app.use(borrowRoutes);
 
-// Default route
+
 app.get("/", (req: Request, res: Response) => {
   res.send("welcome to book app");
 });

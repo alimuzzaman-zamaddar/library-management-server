@@ -16,16 +16,17 @@ const data = await Book.create(body);
     });
 });
 bookRoutes.get("/api/books", async (req: Request, res: Response) => {
-  const { page = 1, limit = 10 } = req.query; // Default to page 1, limit 10 if not provided
+  const { page = 1, limit = 10 } = req.query; 
   const pageNumber = parseInt(page as string, 10);
   const limitNumber = parseInt(limit as string, 10);
 
   try {
     const books = await Book.find()
-      .skip((pageNumber - 1) * limitNumber) // Skip previous pages
-      .limit(limitNumber); // Limit the number of books
+      .sort({ createdAt: -1 })
+      .skip((pageNumber - 1) * limitNumber)
+      .limit(limitNumber);
 
-    const totalBooks = await Book.countDocuments(); // Get total books count for pagination info
+    const totalBooks = await Book.countDocuments(); 
 
     res.status(200).json({
       success: true,
